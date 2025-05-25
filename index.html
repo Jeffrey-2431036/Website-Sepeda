@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PedalPower - Premium Bicycles & Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .category-card:hover .category-overlay {
+            opacity: 1;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .promo-banner {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        }
+        .newsletter-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="#" class="text-2xl font-bold text-green-600 flex items-center">
+                    <i class="fas fa-bicycle mr-2"></i> PedalPower
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-800 hover:text-green-600 font-medium">Home</a>
+                    <a href="#categories" class="text-gray-800 hover:text-green-600 font-medium">Categories</a>
+                    <a href="#new-arrivals" class="text-gray-800 hover:text-green-600 font-medium">New Arrivals</a>
+                    <a href="#best-sellers" class="text-gray-800 hover:text-green-600 font-medium">Best Sellers</a>
+                    <a href="#promo" class="text-gray-800 hover:text-green-600 font-medium">Promo</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-green-600">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-green-600" id="cart-button">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count hidden">0</span>
+                    </button>
+                </div>
+                <button class="md:hidden text-gray-600 hover:text-green-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Ride The Future</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Premium bicycles, equipment and parts for every rider</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#categories" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    Shop Now
+                </a>
+                <a href="#promo" class="bg-transparent hover:bg-white hover:text-gray-900 border-2 border-white text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+                    View Promos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Shop By Category</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Category 1 -->
+                <div class="category-card relative overflow-hidden rounded-lg shadow-md h-64">
+                    <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Bicycles" class="w-full h-full object-cover">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <a href="#" class="text-white text-xl font-bold bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg">Bicycles</a>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                        <h3 class="text-xl font-bold">Bicycles</h3>
+                    </div>
+                </div>
+                
+                <!-- Category 2 -->
+                <div class="category-card relative overflow-hidden rounded-lg shadow-md h-64">
+                    <img src="https://cdn.thewirecutter.com/wp-content/media/2023/12/bikehelmets-2048px-9966.jpg?auto=webp&quality=75&width=1024" alt="Equipment" class="w-full h-full object-cover">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <a href="#" class="text-white text-xl font-bold bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg">Equipment</a>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                        <h3 class="text-xl font-bold">Equipment</h3>
+                    </div>
+                </div>
+                
+                <!-- Category 3 -->
+                <div class="category-card relative overflow-hidden rounded-lg shadow-md h-64">
+                    <img src="https://cdn.shopify.com/s/files/1/0286/1214/files/groupsets.png?v=1739470067&width=2048" alt="Parts" class="w-full h-full object-cover">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <a href="#" class="text-white text-xl font-bold bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg">Parts</a>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                        <h3 class="text-xl font-bold">Parts</h3>
+                    </div>
+                </div>
+                
+                <!-- Category 4 -->
+                <div class="category-card relative overflow-hidden rounded-lg shadow-md h-64">
+                    <img src="data:image/jpeg;base64,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" alt="Accessories" class="w-full h-full object-cover">
+                    <div class="category-overlay absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                        <a href="#" class="text-white text-xl font-bold bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg">Accessories</a>
+                    </div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-4">
+                        <h3 class="text-xl font-bold">Accessories</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section id="promo" class="py-12 promo-banner">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-6 md:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Summer Sale!</h2>
+                    <p class="text-xl text-gray-700">Up to 40% off selected items</p>
+                </div>
+                <div>
+                    <a href="promo.html" class="bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300 inline-block">
+                        Shop the Sale
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section id="new-arrivals" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">New Arrivals</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://ep1.pinkbike.org/p6pb28132021/p6pb28132021.jpg" alt="New Road Bike" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">2025 Transition Sentinel V3</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(24)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$5,200</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p1695409/k$68917c0e010391f9f0996dabb9fde92f/st-900-rr-24-red-cn-fr-btwin-8549168.jpg?f=1024x0&format=auto" alt="Mountain Bike Helmet" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">ST 900 RR 24" RED CN FR</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(18)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$350</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p1619205/k$4ca82a50cf857053f6c81bfb3a807bdb/triban-rc-520-disc-road-bike-105-dark-blue-triban-8542655.jpg?f=1024x0&format=auto" alt="Carbon Fiber Wheelset" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">Triban RC 520 Disc Road Bike 105 - Dark Blue</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(32)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$799.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p1620195/k$9d15dbde8c760b291818448ef369f78c/tilt-500-xs-14in-light-grey-btwin-8527256.jpg?auto=format&fit=crop&w=600&q=80" alt="Smart Bike Computer" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">Tilt 500 XS 14in Light Grey</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(12)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$249.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                    View All New Arrivals
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section id="best-sellers" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Best Sellers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://uk.himiwaybike.com/cdn/shop/files/1_4ec1db43-3692-4b64-aa46-94efdb57d802.jpg?v=1720694104auto=format&fit=crop&w=600&q=80" alt="City Commuter Bike" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">Himiway A7 Pro</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(156)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$899.99</span>
+                                <span class="text-sm text-gray-500 line-through ml-2">$999.99</span>
+                            </div>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.tokopedia.net/img/cache/700/product-1/2020/7/1/batch-upload/batch-upload_5e3c0467-d958-456a-b2b6-5bce60ffe33d.jpg" alt="Bike Repair Kit" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">Essential Repair Kit</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(89)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$39.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://www.niterider.com/cdn/shop/products/LuminaPro1000Vmaxcombo_Product_Image-03_1800x1800.jpg?v=1642625767" alt="Bike Light Set" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">NightRider Light Set</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(127)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-lg font-bold text-gray-900">$49.99</span>
+                                <span class="text-sm text-gray-500 line-through ml-2">$59.99</span>
+                            </div>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://m.media-amazon.com/images/I/81My2qbqAZL.jpg" alt="Bike Lock" class="w-full h-48 object-cover">
+                        <span class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">BESTSELLER</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold mb-1">Ultra Secure Bike Lock</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(203)</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-gray-900">$69.99</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white p-2 rounded-full">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="#" class="inline-block bg-gray-900 hover:bg-gray-800 text-white font-bold py-3 px-8 rounded-lg transition duration-300">
+                    View All Best Sellers
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The Urban Commuter Pro is hands down the best bike I've ever owned. Super comfortable and perfect for my daily commute!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah J." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Sarah J.</h4>
+                            <p class="text-gray-600 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"PedalPower has an amazing selection of parts. I was able to completely upgrade my old bike with their high-quality components."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael T." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Michael T.</h4>
+                            <p class="text-gray-600 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Fast shipping and excellent customer service. My new mountain bike arrived perfectly packaged and ready to ride!"</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Lisa M." class="w-10 h-10 rounded-full mr-3">
+                        <div>
+                            <h4 class="font-bold">Lisa M.</h4>
+                            <p class="text-gray-600 text-sm">Verified Buyer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-bg text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Subscribe to our newsletter for exclusive deals, new arrivals, and cycling tips.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-900">
+                <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-r-lg font-bold transition duration-300">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">PedalPower</h3>
+                    <p class="text-gray-400 mb-4">Your one-stop shop for premium bicycles, equipment, and parts.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Bicycles</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Equipment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Parts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 PedalPower. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Visa" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Mastercard" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="PayPal" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Apple Pay" class="h-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Your Cart</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="border-b pb-4 mb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Subtotal (0 items)</span>
+                    <span class="font-bold">$0.00</span>
+                </div>
+                <a href="#" class="block text-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-lg transition duration-300">
+                    Checkout
+                </a>
+            </div>
+            <div class="text-center py-8">
+                <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                <p class="text-gray-500">Your cart is empty</p>
+            </div>
+            <div class="border-t pt-4">
+                <h4 class="font-bold mb-3">Recently Viewed</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Product" class="w-full h-24 object-cover rounded-lg mb-2">
+                        <p class="text-sm font-medium">Urban Commuter Pro</p>
+                        <p class="text-sm text-gray-600">$899.99</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Product" class="w-full h-24 object-cover rounded-lg mb-2">
+                        <p class="text-sm font-medium">NightRider Light Set</p>
+                        <p class="text-sm text-gray-600">$49.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        const cartButton = document.getElementById('cart-button');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCart = document.getElementById('close-cart');
+        
+        cartButton.addEventListener('click', () => {
+            cartSidebar.classList.remove('translate-x-full');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.add('translate-x-full');
+        });
+        
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll('.product-card button');
+        const cartCount = document.querySelector('.cart-count');
+        let itemCount = 0;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                itemCount++;
+                cartCount.textContent = itemCount;
+                cartCount.classList.remove('hidden');
+                
+                // Add animation
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-plus"></i>';
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-green-600');
+                }, 1000);
+            });
+        });
+        
+        // Mobile menu toggle (placeholder - would need more implementation)
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        mobileMenuButton.addEventListener('click', () => {
+            alert('Mobile menu would open here');
+        });
+    </script>
+</body>
+</html>

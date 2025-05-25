@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PedalPower - Premium Bicycles & Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .category-card:hover .category-overlay {
+            opacity: 1;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .promo-banner {
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        }
+        .newsletter-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2022&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="#" class="text-2xl font-bold text-green-600 flex items-center">
+                    <i class="fas fa-bicycle mr-2"></i> PedalPower
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-800 hover:text-green-600 font-medium">Home</a>
+                    <a href="#categories" class="text-gray-800 hover:text-green-600 font-medium">Categories</a>
+                    <a href="#new-arrivals" class="text-gray-800 hover:text-green-600 font-medium">New Arrivals</a>
+                    <a href="#best-sellers" class="text-gray-800 hover:text-green-600 font-medium">Best Sellers</a>
+                    <a href="#promo" class="text-gray-800 hover:text-green-600 font-medium">Promo</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-green-600">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-green-600" id="cart-button">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count hidden">0</span>
+                    </button>
+                </div>
+                <button class="md:hidden text-gray-600 hover:text-green-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <div class="container mx-auto px-4 py-8 md:py-12">
+        <div class="flex flex-col md:flex-row gap-8">
+            <!-- Product Gallery -->
+            <div class="md:w-1/2">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden mb-4 h-96 flex items-center justify-center">
+                    <img id="mainImage" src="https://ep1.pinkbike.org/p6pb28132021/p6pb28132021.jpg" alt="Premium Headphones" class="w-full h-full object-contain">
+                </div>
+            </div>
+
+            <!-- Product Info -->
+            <div class="md:w-1/2">
+                <div class="bg-white rounded-xl shadow-md p-6">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-1">2025 Transition Sentinel V3</h1>
+                            <div class="flex items-center mb-4">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <span class="text-gray-600 ml-2">(142 reviews)</span>
+                            </div>
+                        </div>
+                        <button class="text-gray-400 hover:text-red-500">
+                            <i class="far fa-heart text-2xl"></i>
+                        </button>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex items-center space-x-2 mb-2">
+                            <span class="text-3xl font-bold text-gray-900">$5200</span>
+                        </div>
+                        <p class="text-green-600 font-medium">In stock (Only 5 left)</p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">Features</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Geo-adjust flip chip for wheel size changes</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Rear suspension has been refined with a 25%</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Effective seat tube angle of 78.3°</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> Using carbon and aluminium</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i> A head tube angle of 64°</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex space-x-4">
+                            <div class="flex items-center border border-gray-300 rounded-md">
+                                <button class="px-3 py-2 text-gray-600 hover:bg-gray-100" onclick="updateQuantity('decrease')">-</button>
+                                <span id="quantity" class="px-4 py-2">1</span>
+                                <button class="px-3 py-2 text-gray-600 hover:bg-gray-100" onclick="updateQuantity('increase')">+</button>
+                            </div>
+                            <button class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-6 rounded-md font-medium transition duration-300 flex items-center justify-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="flex items-center text-gray-600 mb-2">
+                            <i class="fas fa-truck mr-2"></i>
+                            <span>Free shipping on orders over $50</span>
+                        </div>
+                        <div class="flex items-center text-gray-600">
+                            <i class="fas fa-undo mr-2"></i>
+                            <span>30-day return policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details Accordion -->
+        <div class="bg-white rounded-xl shadow-md mt-8 overflow-hidden">
+            <div class="border-b border-gray-200">
+                <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-50 flex justify-between items-center" onclick="toggleAccordion('description')">
+                    <span>Product Description</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div id="description" class="accordion-content px-6">
+                    <div class="pb-4 pt-2 text-gray-600">
+                        <p>The Sentinel rides the lines between planted bottomless sender and playful, poppy trail pony. Its versatile attitude helps riders excel and push their limits, making it the one bike most will need. Its intuitive nature is easy to get acquainted with; you'll find yourself sending lines, jumps, and maneuvers you always felt were beyond your ability. Where before you went around, now you go over. Where you pushed up, now you pedal. Where you rolled, now you boost. It's time to Send-It-All.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-b border-gray-200">
+                <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-50 flex justify-between items-center" onclick="toggleAccordion('specs')">
+                    <span>Technical Specifications</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div id="specs" class="accordion-content px-6">
+                    <div class="pb-4 pt-2">
+                        <table class="w-full text-gray-600">
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="py-2 font-medium">Category</td>
+                                    <td class="py-2">Enduro Bikes</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-medium">Condition</td>
+                                    <td class="py-2">Excellent - Lightly Ridden</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-medium">Frame Size</td>
+                                    <td class="py-2">M</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-medium">Wheel Size</td>
+                                    <td class="py-2">29"</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-medium">Front Travel</td>
+                                    <td class="py-2">160 mm</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-medium">Rear Travel</td>
+                                    <td class="py-2">150 mm</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="accordion-btn w-full px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-50 flex justify-between items-center" onclick="toggleAccordion('reviews')">
+                    <span>Customer Reviews (142)</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </button>
+                <div id="reviews" class="accordion-content px-6">
+                    <div class="pb-4 pt-2">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600">4.7 out of 5</span>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <div class="border-b border-gray-200 pb-4">
+                                <div class="flex justify-between mb-2">
+                                    <h4 class="font-medium">Good Bike</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">By Michael T. on August 12, 2023</p>
+                                <p class="text-gray-700">These bike is awesome and good at any track</p>
+                            </div>
+                            
+                            <div class="border-b border-gray-200 pb-4">
+                                <div class="flex justify-between mb-2">
+                                    <h4 class="font-medium">Very comfortable</h4>
+                                    <div class="flex text-yellow-400 text-sm">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="text-gray-600 text-sm mb-2">By Sarah K. on July 28, 2023</p>
+                                <p class="text-gray-700">I use these for 8+ hours a day for work. The suspension are so soft and don't make my body hurt.</p>
+                            </div>
+                            
+                            <button class="mt-4 text-indigo-600 hover:text-indigo-800 font-medium">See all reviews</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">PedalPower</h3>
+                    <p class="text-gray-400 mb-4">Your one-stop shop for premium bicycles, equipment, and parts.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Bicycles</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Equipment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Parts</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Accessories</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Sale</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Track Order</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-lg font-bold mb-4">About</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Our Story</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 PedalPower. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Visa" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Mastercard" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="PayPal" class="h-6">
+                    <img src="https://via.placeholder.com/40x25" alt="Apple Pay" class="h-6">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+        <div class="p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-xl font-bold">Your Cart</h3>
+                <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="border-b pb-4 mb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Subtotal (0 items)</span>
+                    <span class="font-bold">$0.00</span>
+                </div>
+                <a href="#" class="block text-center bg-gray-900 hover:bg-gray-800 text-white py-2 px-4 rounded-lg transition duration-300">
+                    Checkout
+                </a>
+            </div>
+            <div class="text-center py-8">
+                <i class="fas fa-shopping-cart text-4xl text-gray-300 mb-4"></i>
+                <p class="text-gray-500">Your cart is empty</p>
+            </div>
+            <div class="border-t pt-4">
+                <h4 class="font-bold mb-3">Recently Viewed</h4>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Product" class="w-full h-24 object-cover rounded-lg mb-2">
+                        <p class="text-sm font-medium">Urban Commuter Pro</p>
+                        <p class="text-sm text-gray-600">$899.99</p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1511994298241-608e28f14fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Product" class="w-full h-24 object-cover rounded-lg mb-2">
+                        <p class="text-sm font-medium">NightRider Light Set</p>
+                        <p class="text-sm text-gray-600">$49.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Cart functionality
+        const cartButton = document.getElementById('cart-button');
+        const cartSidebar = document.getElementById('cart-sidebar');
+        const closeCart = document.getElementById('close-cart');
+        
+        cartButton.addEventListener('click', () => {
+            cartSidebar.classList.remove('translate-x-full');
+        });
+        
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.add('translate-x-full');
+        });
+        
+        // Add to cart buttons
+        const addToCartButtons = document.querySelectorAll('.product-card button');
+        const cartCount = document.querySelector('.cart-count');
+        let itemCount = 0;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                itemCount++;
+                cartCount.textContent = itemCount;
+                cartCount.classList.remove('hidden');
+                
+                // Add animation
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-green-500');
+                
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-plus"></i>';
+                    button.classList.remove('bg-green-500');
+                    button.classList.add('bg-green-600');
+                }, 1000);
+            });
+        });
+        
+        // Mobile menu toggle (placeholder - would need more implementation)
+        const mobileMenuButton = document.querySelector('.md\\:hidden');
+        mobileMenuButton.addEventListener('click', () => {
+            alert('Mobile menu would open here');
+        });
+    </script>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PedalPower - Premium Bicycles & Equipment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1485965120184-e220f721d03e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+<!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-8">
+                <a href="#" class="text-2xl font-bold text-green-600 flex items-center">
+                    <i class="fas fa-bicycle mr-2"></i> PedalPower
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="text-gray-800 hover:text-green-600 font-medium">Home</a>
+                    <a href="#categories" class="text-gray-800 hover:text-green-600 font-medium">Categories</a>
+                    <a href="#new-arrivals" class="text-gray-800 hover:text-green-600 font-medium">New Arrivals</a>
+                    <a href="#best-sellers" class="text-gray-800 hover:text-green-600 font-medium">Best Sellers</a>
+                    <a href="#promo" class="text-gray-800 hover:text-green-600 font-medium">Promo</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-green-600">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                </div>
+                <div class="relative">
+                    <button class="text-gray-600 hover:text-green-600" id="cart-button">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="cart-count hidden">0</span>
+                    </button>
+                </div>
+                <button class="md:hidden text-gray-600 hover:text-green-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Summer Cycling Sale</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Up to 50% off on premium bikes & equipment. Limited time offer!</p>
+            
+            <div class="flex justify-center mb-10">
+                <div class="grid grid-cols-4 gap-4">
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="days">00</div>
+                        <div class="text-sm">Days</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="hours">00</div>
+                        <div class="text-sm">Hours</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="minutes">00</div>
+                        <div class="text-sm">Minutes</div>
+                    </div>
+                    <div class="countdown-item rounded-lg p-4 text-center">
+                        <div class="text-3xl font-bold" id="seconds">00</div>
+                        <div class="text-sm">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105">
+                Shop Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Shop by Category</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-gray-100 rounded-xl p-6 text-center hover:bg-blue-50 transition duration-300 cursor-pointer">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bicycle text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Road Bikes</h3>
+                    <p class="text-sm text-gray-600 mt-1">Up to 40% off</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-6 text-center hover:bg-blue-50 transition duration-300 cursor-pointer">
+                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mountain text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Mountain Bikes</h3>
+                    <p class="text-sm text-gray-600 mt-1">Up to 35% off</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-6 text-center hover:bg-blue-50 transition duration-300 cursor-pointer">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-helmet-safety text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Safety Gear</h3>
+                    <p class="text-sm text-gray-600 mt-1">Up to 50% off</p>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-6 text-center hover:bg-blue-50 transition duration-300 cursor-pointer">
+                    <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="font-semibold text-gray-800">Maintenance</h3>
+                    <p class="text-sm text-gray-600 mt-1">Up to 30% off</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Featured Bikes</h2>
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p2036038/k$91c4668e0c925b2114ea3ae1e41f9e34/rc-500-black-cn-fr-triban-967046.jpg?f=1024x0&format=auto" alt="Road Bike" class="w-full h-48 object-cover">
+                        <div class="discount-badge">30% OFF</div>
+                        <button class="absolute bottom-2 left-2 bg-white rounded-full p-2 text-gray-700 hover:text-blue-600">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">RC 500 BLACK CN FR</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(42 reviews)</span>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$1,299.00</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$899.00</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p2071193/k$2152a928164301a8c155ccca2f4399d9/edr-af-105-cn-fr-van-rysel-8642228.jpg?f=1024x0&format=auto" alt="Mountain Bike" class="w-full h-48 object-cover">
+                        <div class="discount-badge">25% OFF</div>
+                        <button class="absolute bottom-2 left-2 bg-white rounded-full p-2 text-gray-700 hover:text-blue-600">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">EDR AF 105 CN FR</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(36 reviews)</span>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$1,499.00</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$1,124.25</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p1619170/k$2470d4d473fbec18fcf697f154d42654/triban-rc-500-disc-road-bike-sora-turqoise-blue-triban-8542636.jpg?f=1024x0&format=auto" alt="Hybrid Bike" class="w-full h-48 object-cover">
+                        <div class="discount-badge">40% OFF</div>
+                        <button class="absolute bottom-2 left-2 bg-white rounded-full p-2 text-gray-700 hover:text-blue-600">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Triban RC 500 Disc Road Bike Sora</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(58 reviews)</span>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$899.00</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$539.40</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://contents.mediadecathlon.com/p2025491/k$cb5c8a71800bc89cc73923e320fb7d68/kids-city-bike-900-blue-alloy-16-inch-4-6-years-btwin-8767498.jpg?f=1024x0&format=auto" alt="Kids Bike" class="w-full h-48 object-cover">
+                        <div class="discount-badge">20% OFF</div>
+                        <button class="absolute bottom-2 left-2 bg-white rounded-full p-2 text-gray-700 hover:text-blue-600">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Kids City Bike 900 Blue Alloy"</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(29 reviews)</span>
+                        </div>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$249.00</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$199.20</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-bold text-gray-800">Cycling Equipment</h2>
+                <a href="#" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Equipment 1 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://media.met-helmets.com/app/uploads/2023/09/met-drone-wide-body-aero-cycling-helmet-M100BI3.jpg" alt="Helmet" class="w-full h-48 object-cover">
+                        <div class="discount-badge">35% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">AeroFlow Helmet</h3>
+                        <p class="text-gray-600 text-sm mt-1">Lightweight & ventilated</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$129.99</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$84.49</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Equipment 2 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://www.tradeinn.com/f/13761/137614532/auvray-titan-u-lock.webp" alt="Bike Lock" class="w-full h-48 object-cover">
+                        <div class="discount-badge">25% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">Titan U-Lock</h3>
+                        <p class="text-gray-600 text-sm mt-1">Anti-theft protection</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$59.99</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$44.99</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Equipment 3 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb5hxXA13z0tp7_erVM2rxw94MArhuoBP1MQ&s" alt="Bike Lights" class="w-full h-48 object-cover">
+                        <div class="discount-badge">50% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">NightRider Combo</h3>
+                        <p class="text-gray-600 text-sm mt-1">Front & rear LED set</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$39.99</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$19.99</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Equipment 4 -->
+                <div class="product-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative">
+                        <img src="https://m.media-amazon.com/images/I/61OXCP0KoPL.jpg" alt="Water Bottle" class="w-full h-48 object-cover">
+                        <div class="discount-badge">30% OFF</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg text-gray-800">HydroFlow Bottle</h3>
+                        <p class="text-gray-600 text-sm mt-1">750ml with cage</p>
+                        <div class="mt-3 flex items-center justify-between">
+                            <div>
+                                <span class="text-gray-500 line-through">$24.99</span>
+                                <span class="text-xl font-bold text-blue-600 ml-2">$17.49</span>
+                            </div>
+                            <button class="bg-blue-600 hover:bg-blue-700 text-white rounded-full p-2">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Sarah Johnson</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Bike I bought during the sale is amazing! The discount was substantial and the bike arrived quickly. Highly recommend!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Michael Chen</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Got the Titan U-Lock at 25% off and it's been perfect for securing my bike downtown. Great quality at a sale price!"</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Emily Rodriguez</h4>
+                            <div class="flex text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"The Junior Explorer bike for my son was a steal at 20% off. He loves it and I love the price! Will shop here again."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Get Exclusive Deals</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Subscribe to our newsletter and be the first to know about new arrivals and special offers.</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                <button class="bg-blue-800 hover:bg-blue-900 px-6 py-3 rounded-r-lg font-medium transition duration-300">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bicycle text-3xl text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold">CycleDeals</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your one-stop shop for quality bicycles and cycling equipment at unbeatable prices.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Road Bikes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Mountain Bikes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Hybrid Bikes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kids Bikes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Accessories</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Returns & Exchanges</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Size Guide</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                            <span>123 Cycling Street, Portland, OR 97201</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <span>info@cycledeals.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 CycleDeals. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+                    <a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date();
+            const saleEnd = new Date();
+            saleEnd.setDate(now.getDate() + 7); // Sale ends in 7 days
+            
+            const diff = saleEnd - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Add to cart animation
+        document.querySelectorAll('.product-card button').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartCount = document.querySelector('.fa-shopping-cart + span');
+                if (cartCount) {
+                    let count = parseInt(cartCount.textContent);
+                    cartCount.textContent = count + 1;
+                    
+                    // Add animation
+                    cartCount.classList.add('animate-bounce');
+                    setTimeout(() => {
+                        cartCount.classList.remove('animate-bounce');
+                    }, 1000);
+                }
+                
+                // Show added notification
+                const notification = document.createElement('div');
+                notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg';
+                notification.textContent = 'Added to cart!';
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.remove();
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
